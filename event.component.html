@@ -1,0 +1,251 @@
+<div class="container" id="submitEventCodeSection" style="display: block;">
+    <form action="" method="post" [formGroup]="eventCodeForm" (ngSubmit)="onSubmitEventCodeForm()">
+        <img class="header-logo" src="assets/images/data-crowd-live-logo.png">
+        <hr>
+        <div class="form-row">
+            <div class="form-group" style="text-align: center;">
+                <p style="text-align: center;">
+                        <a href="https://get.datacrowd.live/" target="_blank" >New? Learn more at <b>Get.DataCrowd.Live</b></a>
+                        <!-- <a href="javascript:void(0)" (click)="openLearnMorePopup()">New? Learn more at <b>Get.DataCrowd.Live</b></a> -->
+                </p>
+                <p style="text-align: center;">
+                    <label for="event_code"><b>Event Code</b></label>
+                </p>
+                <input type="text" name="event_code" placeholder="Event Code" required class="form-control" formControlName="event_code" style="width:50%;margin-left: 0% !important;">
+                <div *ngIf="submitted && eventCodeForm.controls.event_code.errors" class="error">
+                    <div *ngIf="eventCodeForm.controls.event_code.errors.required">Event Code is required</div>
+                </div>
+                <h5 *ngIf="error" class="cls_error">{{ error_msg }}</h5>
+                <h5 *ngIf="success" class="cls_success">{{ success_msg }}</h5>
+            </div>
+            <div class="clearfix" style="text-align: center;">
+                <button type="submit" class="btn signupbtn btn-success btnSubmitEventCode">Enter</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="container clsLogginTool" id="logginToolSection" style="display: none;">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="col-sm-12 col-md-12 col-sm-12 text-center main">
+                <img class="header-logo" src="assets/images/data-crowd-live-logo.png">
+                <p class="time"><a>All feedback is time-stamped & sync'd to the presentation. Time Now: <div id="london" value=""></div></a></p>
+            </div>
+            <div>
+                <div class="col-sm-12 col-md-12 agree ">
+                        
+                    <p class="text-center div_hide_1 msg_box"></p>
+                    <div class="div_sent_msg div_loader_1" style="display: none;">
+                        <!-- <img class="loader loader_1" src="assets/images/loader_round.gif" style="display: none;"> -->
+                        <div class="loader loader_1" style="display: none;"><md-progress-bar mode="indeterminate" ></md-progress-bar></div>
+                    </div>
+                    <div class="div_sent_msg div_sent_msg_1" style="display: none;">
+                        <p class="div_sent_msg_p_1"></p>
+                    </div>
+
+                    <div class="div_show_1">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xs-12 title_background">
+                                <h3 class="text-left div_title">Quick Take Right Now?</h3>
+                                <button id="saveQuickTakeAtag" class="tool_tip_1 btn_enter btn_enter_1" (click)="onsaveQuickTake()"
+                                    disabled="disabled"><i class="material-icons send_icon">send</i></button>
+                            </div>
+                        </div>
+                        <div class="row icons_group">
+                            <div class="social_icon mh60">
+                                <input type="hidden" id="saveQuickTakeHidden" name="saveQuickTakeHidden" value="" />
+                                <ul class="social_list">
+                                    <!-- <li><span (click)="saveQuickTake(1)"><i class="material-icons-new twotone-new_releases"></i></span></li>
+                                    <li><span (click)="saveQuickTake(2)"><i class="material-icons-new twotone-favorite"></i></span></li>
+                                    <li><span (click)="saveQuickTake(3)"><i class="material-icons-new twotone-mood_bad"></i></span></li>
+                                    <li><span (click)="saveQuickTake(4)"><i class="material-icons-new twotone-mood"></i></span></li>
+                                    <li><span (click)="saveQuickTake(5)"><i class="material-icons-new twotone-bookmark"></i></span></li> -->
+                                    
+                                    <li><span (click)="saveQuickTake(1)"><img class="emojis-icons-new" src="assets/images/Clip-It-New.png"></span></li>
+                                    <li><span (click)="saveQuickTake(2)"><img class="emojis-icons-new" src="assets/images/BORED.png"></span></li>
+                                    <li><span (click)="saveQuickTake(3)"><img class="emojis-icons-new" src="assets/images/CONFUSED3-4.png"></span></li>
+                                    <li><span (click)="saveQuickTake(4)"><img class="emojis-icons-new" src="assets/images/HAPPY.png"></span></li>
+                                    <li><span (click)="saveQuickTake(5)"><img class="emojis-icons-new" src="assets/images/HEART1.png"></span></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-sm-12 agree ">
+                    <p class="text-center div_hide_2 msg_box"></p>
+                    <div class="div_sent_msg div_loader_2" style="display: none;">
+                        <!-- <img class="loader loader_2" src="assets/images/loader_round.gif" style="display: none;"> -->
+                        <div class="loader loader_2" style="display: none;"><md-progress-bar mode="indeterminate" ></md-progress-bar></div>
+                    </div>
+
+                    <div class="div_sent_msg div_sent_msg_2" style="display: none;">
+                        <p class="div_sent_msg_p_2"></p>
+                    </div>
+                    <div class="div_show_2">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xs-12 title_background">
+                                <h3 class="text-left div_title">Do You Agree or Disagree?</h3>
+                                <button id="saveDoyouAgreeaTag" class="tool_tip_2 btn_enter btn_enter_2" (click)="onsaveDoyouAgree()"
+                                    disabled="disabled"><i class="material-icons send_icon">send</i></button>
+                            </div>
+                        </div>
+                        <div class="row icons_group">
+                            <div class="col-sm-12 col-md-12 col-xs-12 icon bg_white" id="rating-stars">
+                                <input type="hidden" id="star_rating" value="0" name="star_rating" />
+                                <input type="hidden" id="saveDoyouAgreeHidden" name="saveDoyouAgreeHidden" value="" />
+                                <!-- <span (click)="saveDoyouStar(1)" class="star"><i class="material-icons">star</i></span> 
+                                                <span (click)="saveDoyouStar(2)" class="star"><i class="material-icons">star</i></span>
+                                                <span (click)="saveDoyouStar(3)" class="star"><i class="material-icons">star</i></span> 
+                                                <span (click)="saveDoyouStar(4)" class="star"><i class="material-icons">star</i></span> 
+                                                <span (click)="saveDoyouStar(5)" class="star"><i class="material-icons">star</i></span>  -->
+				<div class="do-you-agree-grid-container mh60">
+					<div class="grid-element" style="font-size: 13px;padding-right: 10px;">
+						Strongly Disagree
+					</div>
+					<div class="grid-element">
+						<div id="slider" ng-controller="myCtrl">
+                                                        <ng5-slider 
+                                                        [(value)]="value"
+                                                        [options]="options" 
+                                                        (userChangeStart)="onUserChangeStart($event)"
+                                                        (userChangeEnd)="onUserChangeEnd($event)"
+                                                        (valueChange)="onValueChange($event)"
+                                                        ></ng5-slider>
+                            			</div>
+					</div>
+					<div class="grid-element" style="font-size: 13px;padding-left: 10px;">
+						Strongly Agree
+					</div>
+				</div>
+
+                                <!-- <div style="display: flex;width: 100%;">
+                                    <p style="float: left;">No</p>
+                                    <div id="slider_yes_no"></div>
+                                    <p style="float: right;">Yes</p>
+                                </div> -->
+
+                                <!-- <div id="slider_yes_no"> -->
+                                    <!-- <rzslider rz-slider-model="slider.value"
+                                                    rz-slider-options="slider.options"></rzslider> -->
+                                <!-- </div> -->
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="row">
+                            <div class="col-sm-6 col-xs-6 col-md-6 text-left staropption">
+                                <a (click)="saveDoyouAgree('no')" class="pointer">No, I disagree</a>
+                            </div>
+                            <div class="col-sm-6 col-xs-6 col-md-6 text-right">
+                                <a (click)="saveDoyouAgree('yes')" class="pointer">Yes, I agree</a>
+                            </div>
+                        </div> -->
+
+
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 agree ">
+                    <p class="text-center div_hide_3 msg_box"></p>
+                    <div class="div_sent_msg div_loader_3" style="display: none;">
+                        <!-- <img class="loader loader_3" src="assets/images/loader_round.gif" style="display: none;"> -->
+                        <div class="loader loader_3" style="display: none;"><md-progress-bar mode="indeterminate" ></md-progress-bar></div>
+                    </div>
+                    <div class="div_sent_msg div_sent_msg_3" style="display: none;">
+                        <p class="div_sent_msg_p_3"></p>
+                    </div>
+                    <div class="div_show_3">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xs-12 title_background">
+
+                                <h3 class="text-left div_title">What Would You Add / Ask?</h3>
+                                <button id="saveWhatNeedtosaiddataAtage" class="tool_tip_3 btn_enter btn_enter_3"
+                                    (click)="saveWhatNeedtosaiddata()" disabled="disabled"><i class="material-icons send_icon">send</i></button>
+
+                            </div>
+                        </div>
+                        <div class="row icons_group">
+                            <div class="col-sm-12 col-md-12 col-sm-12 text_needtosaid mh65 pt10">
+                                <input type="text" (keyup)="check_submit()" name="needtosaid" class="form-control input-field"
+                                    id="needtosaid" placeholder="Text input here" maxlength="120">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-sm-12 col-md-12 agree ">
+                    <p class="text-center div_hide_4 msg_box"></p>
+                    <div class="div_sent_msg div_loader_4" style="display: none;">
+                        <!-- <img class="loader loader_4" src="assets/images/loader_round.gif" style="display: none;"> -->
+                        <div class="loader loader_4" style="display: none;"><md-progress-bar mode="indeterminate" ></md-progress-bar></div>
+                    </div>
+
+                    <div class="div_sent_msg div_sent_msg_4" style="display: none;">
+                        <p class="div_sent_msg_p_4"></p>
+                    </div>
+                    <div class="div_show_4">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xs-12 title_background">
+
+                                <h3 class="text-left div_title">Other Issues / Difficulties?</h3>
+                                <button id="saveQueAns" class="tool_tip_4 btn_enter btn_enter_4" (click)="saveQueAns()"
+                                    disabled="disabled"><i class="material-icons send_icon">send</i></button>
+
+                            </div>
+                        </div>
+                        <div class="row icons_group">
+                            <div class="col-sm-12 col-md-12 col-sm-12 icon que_select mh60 pt10">
+                                <select class="form-control input-field" id="que_ans" (change)="selectQueAns()">
+                                    <option value="">Please select</option>
+                                    <option value="Can't hear / audio glitchy">Can't hear / audio glitchy</option>
+                                    <option value="Not sure I heard, pls repeat">Not sure I heard, pls repeat</option>
+                                    <option value="I didn't understand that">I didn't understand that</option>
+                                    <option value="More details, please">More details, please</option>
+                                    <option value="Does not make sense">Does not make sense</option>
+                                    <option value="Can't see / Video glitchy">Can't see / Video glitchy</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="learnMoreModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <form action="" method="post" id="eventForm" [formGroup]="eventForm" >
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Learn More</h4>
+        </div>
+        <div class="modal-body">
+            
+                <div class="form-group has-feedback">
+                    <p>Learn More text goes here...</p>
+                </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+      </div>
+      
+    </div>
+  </div>
